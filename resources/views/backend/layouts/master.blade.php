@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <title>SB Admin 2 - Blank</title>
 
     <link rel="stylesheet" href="{{ asset('assets/backend/app.css') }}">
@@ -80,7 +80,7 @@
         </div>
     </div>
     {{-- Javascript Mix Core --}}
-    <script src="{{ asset('assets/backend/app.js') }}"></script>
+    <script src="{{ asset('assets/backend/core.js') }}"></script>
     {{-- Custom Javascript Page --}}
     @yield('javascript')
 </body>

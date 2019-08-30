@@ -22,4 +22,5 @@ Route::get('auth/{provider}/callback','Auth\LoginController@handleProviderCallba
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('index', 'AdminController@index');
     Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+    Route::resource('profile', 'ProfileController')->only('index', 'show', 'update');
 });
