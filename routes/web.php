@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('login', 'Auth\LoginController@index')->name('login');
+Route::get('auth/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('auth/{provider}/callback','Auth\LoginController@handleProviderCallback');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('index', 'AdminController@index');
+    Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+});
